@@ -21,6 +21,6 @@ Commercial support is available at
 <a href="http://nginx.com/">nginx.com</a>.</p>
 
 <p><em>!!__Thank you for using nginx__!!</em></p>
-<p><em>Test CI</em></p>
+<p><em>Test CI 2</em></p>
 </body>
 </html>
