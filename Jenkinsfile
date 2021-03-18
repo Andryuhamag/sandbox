@@ -1,12 +1,12 @@
 pipeline {
     agent any
-    triggers { pollSCM('*/5 * * * *') }
+    //triggers { pollSCM('*/5 * * * *') }
     options {
         buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
         timestamps()
     }
     stages {
-        stage('Stop container') { 
+        stage('Stop docker-compose') { 
             steps {
                 sh "docker-compose -f docker/docker-compose.yml down"
             }
@@ -14,10 +14,10 @@ pipeline {
         stage('Test') { 
             steps {
                 // 
-                echo "=== TEST step ==="
+                echo "TEST step"
             }
         }
-        stage('=== Up new container ===') { 
+        stage('Start docker-compose') { 
             steps {
                 echo "TEST deploy!"
                 sh "docker-compose -f docker/docker-compose.yml up -d --build"
