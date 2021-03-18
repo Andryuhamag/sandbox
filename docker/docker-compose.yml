@@ -1,0 +1,4 @@
+my-nginx-example:
+  build: .
+  ports:
+    - "89:80"
