@@ -1,4 +1,5 @@
 my-nginx-example:
   build: .
+  container_name: my-nginx-example
   ports:
     - "89:80"
