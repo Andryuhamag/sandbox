@@ -1,5 +1,10 @@
 pipeline {
-    agent any 
+    agent any
+    triggers { pollSCM('*/5 * * * *') }
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
+        timestamps()
+    }
     stages {
         stage('Stop container') { 
             steps {
