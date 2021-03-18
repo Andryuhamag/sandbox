@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     stages {
-        stage('Build') { 
+        stage('=== Stop docker-compose and remove images ===') { 
             steps {
                 //sh "docker-compose -f /home/andy/projects/nginx-docker-ci-project/docker-compose.yml down"
                 //sh "docker images | grep 'my-nginx' | awk '{print \$1}' | xargs docker rmi"
@@ -12,10 +12,10 @@ pipeline {
         stage('Test') { 
             steps {
                 // 
-                echo "TEST step!"
+                echo "=== TEST step ==="
             }
         }
-        stage('Deploy') { 
+        stage('=== Up new container ===') { 
             steps {
                 echo "TEST deploy!"
                 //sh "cd /home/andy/projects/nginx-docker-ci-project"
